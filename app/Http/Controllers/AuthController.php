@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
@@ -46,13 +47,8 @@ class AuthController extends Controller
      * @return [string] token_type
      * @return [string] expires_at
      */
-    public function login(Request $request)
+    public function login(AuthRequest $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
-        ]);
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials))
             return response()->json([
@@ -61,9 +57,12 @@ class AuthController extends Controller
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
+        
         if ($request->remember_me)
             $token->expires_at = Carbon::now()->addWeeks(1);
-        $token->save();
+            $user = User::where('email', '=', $request->email)->firstOrFail();
+            $user->remember_token = $tokenResult->accessToken;
+            $user->save();
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
