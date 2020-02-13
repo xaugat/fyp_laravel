@@ -32,7 +32,7 @@ Route::group([
         Route::get('user', 'AuthController@user');
         // Route::post('user', 'UserController@user');
         Route::get('users', function(){
-            return User::all();
+            return User::with('role')->get();
         });
 
         Route::get('user/{id}', 'AuthController@getUserById');   
