@@ -23,12 +23,21 @@ class AuthController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed',
             'roles_id' => 'required|integer',
+            'phone' => 'required|string',
+            'address' => 'required|string',
+            'Achievements' => 'required|string',
+            'Job' => 'required|string',
+            
         ]);
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'roles_id' => $request->roles_id,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'Achievements' => $request->Achievements,
+            'Job' => $request->Job
           
         ]);
         $user->save();
