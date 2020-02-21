@@ -79,6 +79,8 @@ class AuthController extends Controller
                 $tokenResult->token->expires_at
             )->toDateTimeString()
         ]);
+        
+        
     }
   
     /**
@@ -105,6 +107,10 @@ class AuthController extends Controller
         $user = $request->user();
         $user->load('role');
         return response()->json($user);
+    }
+
+    public function users(Request $request){
+        return User::with('role')->get();
     }
 
 
