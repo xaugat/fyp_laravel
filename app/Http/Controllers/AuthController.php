@@ -41,9 +41,9 @@ class AuthController extends Controller
           
         ]);
         $user->save();
-        return response()->json([
-            'message' => 'Successfully created user!'
-        ], 201);
+        return response()->json(
+            'Successfully created user!'
+        , 201);
     }
   
     /**
@@ -60,9 +60,9 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials))
-            return response()->json([
-                'message' => 'Unauthorized'
-            ], 401);
+            return response()->json(
+                'Invalid Username or Password'
+            , 401);
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
