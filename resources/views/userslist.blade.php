@@ -5,7 +5,7 @@
 <html lang="en">
 <head runat="server">
     
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -46,13 +46,16 @@
                 <tr>
                 <!-- <th scope="col"> Id <th> -->
                 
-                <th scope="col"> Name <th>
+                <th scope="col"> Name</th>
                 
-                <th scope="col"> Role <th>
+                <th scope="col"> Role</th>
                 
-                <th scope="col"> Email <th>
-                <th scope="col">  <th>
-                <th scope="col">  <th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Phone </th>
+                <th scope="col"> Address </th>
+                <th scope="col"> Job </th>
+                <th scope="col"> Achievements </th>
+             
                 
                 
                
@@ -79,10 +82,12 @@ fetch("http://192.168.0.116:8000/users").then(
                         // temp +="<td>"+u.id+"</td>";
                         temp +="<td>"+u.name+"</td>";
                         temp +="<td>"+u.role.name+"</td>";
-                        temp +="<td>"+u.role.id+"</td>";
-                        
-                        temp +="<td>"+u.Phone+"</td>";
                         temp +="<td>"+u.email+"</td>";
+                        temp +="<td>"+u.Phone+"</td>";
+                        temp +="<td>"+u.Address+"</td>";
+                        temp +="<td>"+u.Job+"</td>";
+                        temp +="<td>"+u.Achievements+"</td>";
+                        
                         temp +="</tr>";
                         // temp +="<td>"+u.Address+"</td></tr>";
                         // temp +="<td>"+u.Job+"</td></tr>";
