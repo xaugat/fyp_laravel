@@ -24,5 +24,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+        // api request
+    }
+    public function userslist()
+    {
+        return view('userslist');
+        // api request
     }
 }

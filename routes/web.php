@@ -23,6 +23,6 @@ Route::get('/users', 'AuthController@users')->name('Users');
 
 Route::get('/user', 'AuthController@user')->name('User');
 
-Route::get('/events', 'EventController@index')->name('Events');
+Route::get('/userslist', 'HomeController@userslist')->name('Users');
 
 
