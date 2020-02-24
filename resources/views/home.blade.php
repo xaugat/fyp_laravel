@@ -15,7 +15,7 @@
 
   <a href="/user" class="w3-bar-item w3-button">Admin Profile</a>
   <a href="/userslist" class="w3-bar-item w3-button">All users</a>
-    <a href="/eventlist" class="w3-bar-item w3-button">Events</a>
+    
 
 
 </div>
