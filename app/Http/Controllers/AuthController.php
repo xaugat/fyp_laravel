@@ -18,6 +18,8 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
+
+
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
@@ -90,10 +92,12 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
+        if(Auth::check()){
+        $request->user()->token()->delete();
+        }
         return response()->json([
             'message' => 'Successfully logged out'
-        ]);
+        ],200);
     }
   
     /**
@@ -122,17 +126,28 @@ class AuthController extends Controller
         return response()->json($user);
            
         }
+
+    public function updatebyid(Request $request, $id)
+        {
+            
+            $user = User::find($id);
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->password = bcrypt($request->password);
+            $user->roles_id = $request->input('roles_id');
+            $user->phone = $request->input('phone');
+            $user->address = $request->input('address');
+            $user->Achievements = $request->input('Achievements');
+            $user->Job = $request->input('Job');
+
+            $user->save();
+            return response()->json($user);
+
+           
+        
+        }
     
 
-    
-
-//     public function users(Request $request){
-//         $users = DB::table('users')->get();
-
-// foreach ($users as $user)
-// {
-//     var_dump($user->name);
-// }
-//     }
+ 
     
 }

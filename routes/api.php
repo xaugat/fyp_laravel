@@ -24,17 +24,18 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
+    
   
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
-        // Route::post('user', 'UserController@user');
+       
         Route::get('users', 'AuthController@users'); 
-        
+        Route::get('user/{id}', 'AuthController@getUserById'); 
 
-        Route::get('user/{id}', 'AuthController@getUserById');   
+        Route::put('userupdate/{id}', 'AuthController@updatebyid');  
         
         
     });
