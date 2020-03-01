@@ -75,7 +75,7 @@ $(document).ready(function(){
   $('#state').val('');
   var searchField = $('#search').val();
   var expression = new RegExp(searchField, "i");
-  $.getJSON("http://100.64.244.47:8000/users", function(data) {
+  $.getJSON("http://192.168.0.114:8000/users", function(data) {
    $.each(data, function(key, value){
     if (value.name.search(expression) != -1 || value.email.search(expression) != -1)
     {

@@ -48,9 +48,8 @@
                 
                 <th scope="col"> Name</th>
                 
-                <th scope="col"> Role</th>
-                
                 <th scope="col"> Email </th>
+                <th scope="col"> Role </th>
                 <th scope="col"> Phone </th>
                 <th scope="col"> Address </th>
                 <th scope="col"> Job </th>
@@ -81,8 +80,8 @@ fetch("http://192.168.0.114:8000/users").then(
                         temp +="<tr>";
                         // temp +="<td>"+u.id+"</td>";
                         temp +="<td>"+u.name+"</td>";
-                        temp +="<td>"+u.role.name+"</td>";
                         temp +="<td>"+u.email+"</td>";
+                        temp +="<td>"+u.role.name+"</td>";
                         temp +="<td>"+u.Phone+"</td>";
                         temp +="<td>"+u.Address+"</td>";
                         temp +="<td>"+u.Job+"</td>";

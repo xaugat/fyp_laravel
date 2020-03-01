@@ -119,7 +119,7 @@ class AuthController extends Controller
         $search = $request->header('search');
         $search = $search ."%";
         if($search){
-            return User::where("name","like",$search)->get();
+            return User::where("name","like",$search)->with('role')->get();
         }
         return User::with('role')->get();
     }
