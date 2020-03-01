@@ -14,9 +14,14 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $events = Event::paginate(15);
+        $search = $request->header('search');
+        $search = $search ."%";
+        if($search){
+            return Event::where("event_name","like",$search)->get();
+        }
         // Return collection of events as a resource
 
         return EventResource::collection($events);
