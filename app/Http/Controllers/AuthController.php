@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
@@ -107,13 +108,19 @@ class AuthController extends Controller
      */
     
     public function user(Request $request){
-        
+       
         $user = $request->user();
         $user->load('role');
         return response()->json($user);
     }
 
-    public function users(Request $request){
+    public function users(Request $request ){
+
+        $search = $request->header('search');
+        $search = $search ."%";
+        if($search){
+            return User::where("name","like",$search)->get();
+        }
         return User::with('role')->get();
     }
 

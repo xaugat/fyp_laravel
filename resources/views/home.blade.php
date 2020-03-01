@@ -8,6 +8,25 @@
     <title></title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 1001;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
+  </style>
+
 <body>
    <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
@@ -36,6 +55,43 @@
        <form id="form1" runat="server">
         <div>
         </div>
+  <br /><br />
+  <div class="container" style="width:900px;">
+   <h2 align="center">Search Users here...</h2>
+   <h3 align="center">Users Data</h3>   
+   <br /><br />
+   <div align="center">
+    <input type="text" name="search" id="search" placeholder="Search Users Details" class="form-control" />
+   </div>
+   <ul class="list-group" id="result"></ul>
+   <br />
+  </div>
+
+<script>
+$(document).ready(function(){
+ $.ajaxSetup({ cache: false });
+ $('#search').keyup(function(){
+  $('#result').html('');
+  $('#state').val('');
+  var searchField = $('#search').val();
+  var expression = new RegExp(searchField, "i");
+  $.getJSON("http://100.64.244.47:8000/users", function(data) {
+   $.each(data, function(key, value){
+    if (value.name.search(expression) != -1 || value.email.search(expression) != -1)
+    {
+     $('#result').append('<li class="list-group-item link-class"> '+value.name+' | <span class="text-muted">'+value.email+'</span> | <span class="text-muted">'+value.role.name+'</span></li>');
+    }
+   });   
+  });
+ });
+ 
+ $('#result').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#search').val($.trim(click_text[0]));
+  $("#result").html('');
+ });
+});
+</script>
          
        
     </form>
