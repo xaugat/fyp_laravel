@@ -69,7 +69,7 @@
                 <script>
 
 
-fetch("http://100.64.244.47:8000/users").then(
+fetch("http://192.168.0.114:8000/users").then(
     res=>{
         res.json().then(
             data=>{
