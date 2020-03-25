@@ -31,4 +31,14 @@ class HomeController extends Controller
         return view('userslist');
         // api request
     }
+    public function eventlist()
+    {
+        return view('eventlist');
+        // api request
+    }
+    public function register()
+    {
+        return view('auth/register');
+        // api request
+    }
 }

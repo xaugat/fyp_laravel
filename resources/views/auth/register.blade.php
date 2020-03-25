@@ -60,6 +60,72 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="roles_id" class="col-md-4 col-form-label text-md-right">{{ __('roles_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="roles_id" type="number" class="form-control @error('roles_id') is-invalid @enderror" name="roles_id" required autocomplete="roles_id" autofocus>
+
+                                @error('roles_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" required autocomplete="phone" autofocus>
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="string" class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address" autofocus>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Job" class="col-md-4 col-form-label text-md-right">{{ __('Job') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Job" type="string" class="form-control @error('Job') is-invalid @enderror" name="Job" required autocomplete="Job" autofocus>
+
+                                @error('Job')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Achievements" class="col-md-4 col-form-label text-md-right">{{ __('Achievements') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Achievements" type="string" class="form-control @error('Achievements') is-invalid @enderror" name="Achievements" required autocomplete="Achievements" autofocus>
+
+                                @error('Achievements')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

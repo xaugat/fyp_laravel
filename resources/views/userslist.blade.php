@@ -1,46 +1,39 @@
 @extends('layouts.app')
 @section('content')
+
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html lang="en">
-<head runat="server">
-    
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>List of Users</title>
-</head>
-<body>
-
-<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-
-  <a href="/user" class="w3-bar-item w3-button">Admin Profile</a>
-  <a href="/userslist" class="w3-bar-item w3-button">All users</a>
- 
-
-
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sider Menu Bar CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+    <header>My App</header>
+  <ul>
+    <li><a href="home"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+    <li><a href="userslist"><i class="fas fa-link"></i>View users</a></li>
+    <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li>
+    <li><a href="eventlist"><i class="fas fa-calendar-week"></i>Events</a></li>
+    <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+    <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+    <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+  </ul>
 </div>
-
-<div class="w3-teal">
-  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-  <div class="w3-container">
-    <h1>Alumni Tracking System</h1>
-      <h3>Welcome Admin!!</h3>
-  </div>
-</div>
+ <section>
+     
 
 
 
-<div class="w3-container">
-    <p></p>
-       <form id="form1" runat="server">
-        <div>
-        </div>
-        
-<div class="container">
+ <div class="container">
         <table class="table table-stripped table-dark">
             <thead>
                 <tr>
@@ -104,25 +97,15 @@ fetch("http://192.168.0.114:8000/users").then(
                 </tbody>
 
         </table>
-</div>
-         
-       
-    </form>
-
-</div>
-
-<script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
+ </section>
+        
+     
+    </body>
 
 
 
-</body>
-</html>
+
+
+
+
 @endsection

@@ -115,7 +115,7 @@ class AuthController extends Controller
     }
 
     public function users(Request $request ){
-
+      
         $search = $request->header('search');
         $search = $search ."%";
         if($search){

@@ -45,6 +45,9 @@ Route::group([
 
 Route::get('events', 'EventController@index');
 
+
+Route::get('search', 'EventController@search');
+
 Route::get('event/{id}', 'EventController@show');
 
 Route::post('event', 'EventController@store');

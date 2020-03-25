@@ -16,15 +16,33 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::paginate(15);
+        $events = Event::paginate(10);
+        
+        return EventResource::collection($events); 
         $search = $request->header('search');
         $search = $search ."%";
         if($search){
             return Event::where("event_name","like",$search)->get();
         }
-        // Return collection of events as a resource
-
-        return EventResource::collection($events);
+    
+       
+       
+        
+        
+    }
+    public function search(Request $request)
+    {
+  
+        $search = $request->header('search');
+        $search = $search ."%";
+        if($search){
+            return Event::where("event_name","like",$search)->get();
+        }
+    
+       
+       
+        
+        
     }
 
     /**
