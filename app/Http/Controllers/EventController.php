@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::paginate(10);
+        $events = Event::paginate(12);
         
         return EventResource::collection($events); 
         $search = $request->header('search');

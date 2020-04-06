@@ -29,10 +29,6 @@
   </ul>
 </div>
  <section>
-     
-
-
-
  <div class="container">
         <table class="table table-stripped table-dark">
             <thead>

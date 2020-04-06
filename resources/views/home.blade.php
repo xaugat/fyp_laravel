@@ -28,6 +28,7 @@
   </ul>
 </div>
  <section>
+
      <h2 style="color: white; text-align:center">Welcome Admin</h2>
      <br>
 
@@ -39,7 +40,8 @@
         </div>
         <div class="content">
           <h3>View Users</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Being the Admin of the System, you can view all the users participated in this system. You can view the address, phone number, name, email, their achievemnts and jobs. Also you can identify users from their role either 
+          they are Alumni, College, Students or Admin.</p>
         </div>
       </div>
       <div class="box">
@@ -48,7 +50,7 @@
         </div>
         <div class="content">
           <h3>Create College</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Admin only have the permission to create a new College in the system. So Being an Admin you can create a new College and once a college is registered you should hand the account to the respective college. this can be done through Mobile Application also.</p>
         </div>
       </div>
       <div class="box">
@@ -56,23 +58,46 @@
           <img src="view.jpg">
         </div>
         <div class="content">
-          <h3>Track users</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h3>View Events</h3>
+          <p>Events can be viewed by every users of the application. Whereas the authority to create events is only given to college. You can view all the events created by college from Admin panel as well as Mobile Application.</p>
         </div>
       </div>
     </div>
+
     <br>
     <br>
-    <div class = "box2">
+    <br>
+
+
+
+ <div class = "box2">
     <div class="imgBx">
-    <img src = "bg.jpg">
+
+    <img src = "background.jpg">
+
     <div class = "content">
-    <h1> Hello saugat</h1>
-    </div>
-    </div>
+        <h3 style="color: black; text-align:center"> Alumni Tracking System</h3>
+   
     </div>
 
- </section>
+    <div class = "contents">
+        <h3 style="color: black; text-align:center"> About us</h3>
+
+        <h5 style="color: black; text-align:center"> Alumni Tracking System is a Mobile based application. This application is made for a university to track their alumni, students and faculty members. this application provides 
+        seperate database to store information of alumni, student and colleges of the a particular university. </h5>
+   
+    </div>
+
+    <div class = "container">
+        <h3 style="color: black; text-align:center"> What's inside App</h3>
+       
+        <h5 style="color: black; text-align:center"> Search your faculty members. Call and mail via application. Watch events and stay connected.</h5>
+        <h6 style="color: black; text-align:center">Developed by: Saugat Poudel</h6>
+   
+    </div>
+    </div>
+    </div>
+     </section>
 
   </body>
 </html>

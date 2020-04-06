@@ -87,7 +87,7 @@ section{
   background: url(b.jpg) no-repeat;
   background-position: center;
   background-size: cover;
-  height: 400vh;
+  height: 100vh;
   transition: all .5s;
 }
 
@@ -126,7 +126,7 @@ body {
 .box2 {
   position: relative;
   width: 1050px;
-  height: 1400px;
+  height: 900px;
   background: white;
   box-shadow: 0 30px 30px rgba(0,0,0,.5);
 }
@@ -169,6 +169,47 @@ body {
 
 .box:hover .imgBx img {
   opacity: 0;
+}
+.box2 .content {
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  width: 80%;
+  height: 60px;
+  background: #fff;
+  transition: 0.5s;
+  overflow: hidden;
+
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.box2 .contents {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 40%;
+  height: 300px;
+  background: #fff;
+  transition: 0.5s;
+  overflow: hidden;
+
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.box2 .container {
+  position: absolute;
+  top: 550px;
+  right: 55%;
+  width: 40%;
+  height: 200px;
+  background: #fff;
+  transition: 0.5s;
+  overflow: hidden;
+
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .box .content {
