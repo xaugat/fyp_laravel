@@ -25,6 +25,8 @@ Route::get('/user', 'AuthController@user')->name('User');
 
 Route::get('/userslist', 'HomeController@userslist')->name('Users');
 
+Route::get('/moredetail', 'HomeController@moredetail')->name('Users');
+
 Route::get('/eventlist', 'HomeController@eventlist')->name('Events');
 
 Route::get('/register', 'HomeController@register')->name('register');

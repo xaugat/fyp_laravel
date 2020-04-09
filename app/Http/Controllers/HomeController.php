@@ -31,6 +31,11 @@ class HomeController extends Controller
         return view('userslist');
         // api request
     }
+    public function moredetail()
+    {
+        return view('moredetail');
+        // api request
+    }
     public function eventlist()
     {
         return view('eventlist');
