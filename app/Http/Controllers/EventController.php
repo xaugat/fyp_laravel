@@ -16,9 +16,10 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::paginate(12);
+        $events = Event::paginate(10);
         
-        return EventResource::collection($events); 
+        return EventResource::collection($events);
+
         $search = $request->header('search');
         $search = $search ."%";
         if($search){
@@ -28,6 +29,14 @@ class EventController extends Controller
        
        
         
+        
+    }
+    public function allevents(Request $request)
+    {
+        $events = Event::paginate(100)->sortBy("event_date");
+        
+        return EventResource::collection($events); 
+       
         
     }
     public function search(Request $request)

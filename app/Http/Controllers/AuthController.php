@@ -20,7 +20,6 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
 
-
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
@@ -30,7 +29,6 @@ class AuthController extends Controller
             'address' => 'required|string',
             'Achievements' => 'required|string',
             'Job' => 'required|string',
-            
         ]);
         $user = new User([
             'name' => $request->name,
@@ -40,15 +38,14 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'Achievements' => $request->Achievements,
-            'Job' => $request->Job
-          
+            'Job' => $request->Job,
         ]);
         $user->save();
         return response()->json(
             'Successfully created user!'
         , 201);
     }
-  
+
     /**
      * Login user and create token
      *
@@ -69,7 +66,7 @@ class AuthController extends Controller
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
-        
+
         if ($request->remember_me)
             $token->expires_at = Carbon::now()->addWeeks(1);
             $user = User::where('email', '=', $request->email)->firstOrFail();
@@ -82,10 +79,10 @@ class AuthController extends Controller
                 $tokenResult->token->expires_at
             )->toDateTimeString()
         ]);
-        
-        
+
+
     }
-  
+
     /**
      * Logout user (Revoke the token)
      *
@@ -93,29 +90,34 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        if(Auth::check()){
-        $request->user()->token()->delete();
-        }
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ],200);
+        $token = $request->user()->token();
+        $token->revoke();
+
+        $response = 'You have been succesfully logged out!';
+        return response($response, 200);
+//     if(Auth::check()){
+//        $request->user()->token()->delete();
+//        }
+//        return response()->json([
+//            'message' => 'Successfully logged out'
+//        ],200);
     }
-  
+
     /**
      * Get the authenticated User
      *
      * @return [json] user object
      */
-    
+
     public function user(Request $request){
-       
+
         $user = $request->user();
         $user->load('role');
         return response()->json($user);
     }
 
     public function users(Request $request ){
-      
+
         $search = $request->header('search');
         $search = $search ."%";
         if($search){
@@ -125,18 +127,18 @@ class AuthController extends Controller
     }
 
 
-    
-   
+
+
     public function getUserById($id){
 
         $user = User::find($id);
         return response()->json($user);
-           
+
         }
 
     public function updatebyid(Request $request, $id)
         {
-            
+
             $user = User::find($id);
             $user->name = $request->input('name');
             $user->email = $request->input('email');
@@ -147,14 +149,17 @@ class AuthController extends Controller
             $user->Achievements = $request->input('Achievements');
             $user->Job = $request->input('Job');
 
+
             $user->save();
             return response()->json($user);
 
-           
-        
-        }
-    
 
- 
-    
+
+        }
+
+
+
+
+
+
 }

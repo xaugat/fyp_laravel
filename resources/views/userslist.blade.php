@@ -21,7 +21,7 @@
   <ul>
     <li><a href="home"><i class="fas fa-qrcode"></i>Dashboard</a></li>
     <li><a href="userslist"><i class="fas fa-link"></i>View users</a></li>
-    <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li>
+    <!-- <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li> -->
     <li><a href="eventlist"><i class="fas fa-calendar-week"></i>Events</a></li>
     <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
     <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
@@ -32,77 +32,90 @@
  <div class="container">
         <table class="table table-stripped table-dark">
             <thead>
-                <tr>
-                <!-- <th scope="col"> Id <th> -->
+              
+                
                 
                 <th scope="col"> Name</th>
                 
                 <th scope="col"> Email </th>
                 <th scope="col"> Role </th>
-                
 
-                <td><a href='/moredetail'>More details</a></td>
-
-
-
-               <!--  <th scope="col"> Phone </th>
                 <th scope="col"> Address </th>
-                <th scope="col"> Job </th>
-                <th scope="col"> Achievements </th> -->
-             
-                
-                
-               
-                <!-- <th scope="col"> Address <th> 
-                <th scope="col"> Achievemnets <th> 
-                <th scope="col"> Job <th>    -->
+                <th scope="col"> Phone </th>
+                            <th scope="col"> Job </th>
+                <th scope="col"> Achievements </th>
                 </tr>
+                
             </thead>
+            
+                    
+                   
+
+
 
                 <tbody id="data">
+
+                <!-- <tr<a href = "moredetail"></a>></tr>; -->
+
                 <script>
+                    function myFunction() {
+  location.replace("https://www.w3schools.com")
+}
+
 
 
 fetch("http://192.168.0.114:8000/users").then(
     res=>{
         res.json().then(
             data=>{
-                console.log(data);
+                console.log(data+1);
                 if(data.length > 0){
                     var temp = "";
 
                     data.forEach((u)=>{
 
                         temp +="<tr>";
-
-                        // temp +="<td>"+u.id+"</td>";
-                        temp +="<td >"+u.name+"</td>";
+                        
+                        temp +="<td>"+u.name+"</td>";
                          
                         temp +="<td>"+u.email+"</td>";
                         temp +="<td>"+u.role.name+"</td>";
-                        
-                                            
-                
-                        // temp +="<td>"+u.Phone+"</td>";
-                        // temp +="<td>"+u.Address+"</td>";
-                        // temp +="<td>"+u.Job+"</td>";
-                        // temp +="<td>"+u.Achievements+"</td>";
-                        
+                        temp += "<td>"+u.Address+"</td>";
+                        temp +="<td>"+u.Phone+"</td>";
+ 
+                        temp +="<td>"+u.Job+"</td>";
+                        temp +="<td>"+u.Achievements+"</td>";
+                       
                         temp +="</tr>";
-                        // temp +="<td>"+u.Address+"</td></tr>";
-                        // temp +="<td>"+u.Job+"</td></tr>";
-                        // temp +="<td>"+u.Achievements+"</td></tr>";
-                    })
+                        
+                    }
+                  
+                    )
                     document.getElementById("data").innerHTML = temp;
+
+
                 }
+                
             }
+            
 
         )
+
     }
+    
 )
+
+
+
+
 </script>
+
+                    
+
                 
                 </tbody>
+              
+
 
         </table>
  </section>

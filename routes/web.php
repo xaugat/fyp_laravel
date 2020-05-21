@@ -29,6 +29,6 @@ Route::get('/moredetail', 'HomeController@moredetail')->name('Users');
 
 Route::get('/eventlist', 'HomeController@eventlist')->name('Events');
 
-Route::get('/register', 'HomeController@register')->name('register');
+// Route::get('registerCollege', 'HomeController@registerCollege')->name('registerCollege');
 
 

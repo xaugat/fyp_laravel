@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\PasswordResetNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
@@ -41,4 +43,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(Role::class, 'id', 'roles_id');
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token));
+    }
+
+
 }

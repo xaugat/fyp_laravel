@@ -24,20 +24,21 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
-    
-  
+    Route::post('Api/password/email', 'Api\ForgotPasswordController@sendResetLinkEmail');
+    Route::post('Api/password/reset', 'Api\ResetPasswordController@reset');
+
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
-       
-        Route::get('users', 'AuthController@users'); 
-        Route::get('user/{id}', 'AuthController@getUserById'); 
 
-        Route::put('userupdate/{id}', 'AuthController@updatebyid');  
-        
-        
+        Route::get('users', 'AuthController@users');
+        Route::get('user/{id}', 'AuthController@getUserById');
+
+        Route::put('userupdate/{id}', 'AuthController@updatebyid');
+
+
     });
 });
 
@@ -45,6 +46,7 @@ Route::group([
 
 Route::get('events', 'EventController@index');
 
+Route::get('allevents', 'EventController@allevents');
 
 Route::get('search', 'EventController@search');
 

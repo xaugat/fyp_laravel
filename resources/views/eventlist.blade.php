@@ -21,7 +21,7 @@
   <ul>
     <li><a href="home"><i class="fas fa-qrcode"></i>Dashboard</a></li>
     <li><a href="userslist"><i class="fas fa-link"></i>View users</a></li>
-    <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li>
+    <!-- <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li> -->
     <li><a href="eventlist"><i class="fas fa-calendar-week"></i>Events</a></li>
     <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
     <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
@@ -57,7 +57,7 @@
 
                 <tbody id="data">
                 <script>
-fetch("http://192.168.0.114:8000/api/events").then(
+fetch("http://192.168.0.114:8000/api/allevents").then(
   
     res=>{
       
