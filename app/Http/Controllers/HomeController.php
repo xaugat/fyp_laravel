@@ -24,26 +24,22 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-        // api request
+        // displays home view page of admin panel
     }
     public function userslist()
     {
         return view('userslist');
-        // api request
+        // displays userslist view page of admin panel
     }
-    public function moredetail()
-    {
-        return view('moredetail');
-        // api request
-    }
+   
     public function eventlist()
     {
         return view('eventlist');
-        // api request
+        // displays eventlist view page of admin panel
     }
     public function register()
     {
         return view('auth/register');
-        // api request
+        // displays register page to create new college or admin from admin panel
     }
 }

@@ -8,10 +8,10 @@
     <meta charset="utf-8">
     <title>Sider Menu Bar CSS</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
   </head>
   <body>
-    <input type="checkbox" id="check">
+    <input type="checkbox" id="check"> <!--css properties for userslist page -->
     <label for="check">
       <i class="fas fa-bars" id="btn"></i>
       <i class="fas fa-times" id="cancel"></i>
@@ -53,9 +53,8 @@
 
 
 
-                <tbody id="data">
+                <tbody id="data"> <!--displays data from data variable and shows in table  -->
 
-                <!-- <tr<a href = "moredetail"></a>></tr>; -->
 
                 <script>
                     function myFunction() {
@@ -64,7 +63,7 @@
 
 
 
-fetch("http://192.168.0.114:8000/users").then(
+fetch("http://192.168.0.114:8000/users").then( // fetch user data from user api 
     res=>{
         res.json().then(
             data=>{
@@ -72,7 +71,7 @@ fetch("http://192.168.0.114:8000/users").then(
                 if(data.length > 0){
                     var temp = "";
 
-                    data.forEach((u)=>{
+                    data.forEach((u)=>{ // using for each loops data from user api is fetched and displayed
 
                         temp +="<tr>";
                         
@@ -91,7 +90,7 @@ fetch("http://192.168.0.114:8000/users").then(
                     }
                   
                     )
-                    document.getElementById("data").innerHTML = temp;
+                    document.getElementById("data").innerHTML = temp; // saves data in data variable
 
 
                 }

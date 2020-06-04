@@ -17,11 +17,10 @@
       <i class="fas fa-times" id="cancel"></i>
     </label>
     <div class="sidebar">
-    <header>My App</header>
+    <header>My App</header> <!--creates navigation of admin panel -->
   <ul>
     <li><a href="home"><i class="fas fa-qrcode"></i>Dashboard</a></li>
     <li><a href="userslist"><i class="fas fa-link"></i>View users</a></li>
-    <!-- <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li> -->
     <li><a href="eventlist"><i class="fas fa-calendar-week"></i>Events</a></li>
     <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
     <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
@@ -34,12 +33,12 @@
 
 
  <div class="container">
-        <table class="table table-stripped table-dark">
+        <table class="table table-stripped table-dark"> <!--table css -->
             <thead>
                 <tr>
                 <!-- <th scope="col"> Id <th> -->
                 
-                <th scope="col"> Event Name</th>
+                <th scope="col"> Event Name</th> <!--table headers -->
                 
                 <th scope="col"> Event Date </th>
                 <th scope="col"> Venue </th>
@@ -47,30 +46,25 @@
                 
              
                 
-                
-               
-                <!-- <th scope="col"> Address <th> 
-                <th scope="col"> Achievemnets <th> 
-                <th scope="col"> Job <th>    -->
+              
                 </tr>
             </thead>
 
-                <tbody id="data">
+                <tbody id="data"> <!-- data fetched from data variable is assigned here to show in table -->
                 <script>
-fetch("http://192.168.0.114:8000/api/allevents").then(
+fetch("http://192.168.0.114:8000/api/allevents").then( // fetch data from api and shows in list 
   
     res=>{
       
         res.json().then(
 
-            data=>{
+            data=>{ // all data are saved in data variables 
                 console.log(data.data);
                 if(data.data.length > 0){
                     var temp = "";
 
-                    data.data.forEach((u)=>{
+                    data.data.forEach((u)=>{ // for loops to iterate and fetch data from api 
                         temp +="<tr>";
-                        // temp +="<td>"+u.id+"</td>";
                         temp +="<td>"+u.event_name+"</td>";
                         temp +="<td>"+u.event_date+"</td>";
                         temp +="<td>"+u.event_venue+"</td>";
@@ -78,9 +72,6 @@ fetch("http://192.168.0.114:8000/api/allevents").then(
                        
                         
                         temp +="</tr>";
-                        // temp +="<td>"+u.Address+"</td></tr>";
-                        // temp +="<td>"+u.Job+"</td></tr>";
-                        // temp +="<td>"+u.Achievements+"</td></tr>";
                     })
                     document.getElementById("data").innerHTML = temp;
                 }

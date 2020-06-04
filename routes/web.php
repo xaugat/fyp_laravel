@@ -11,24 +11,23 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { // routes for navigation in system welcome page
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(); //checks authentication first and only redirects user in website
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home'); // routes for navigation in admin home page
 
-Route::get('/users', 'AuthController@users')->name('Users');
+Route::get('/users', 'AuthController@users')->name('Users'); // api routes to show list of users
 
 Route::get('/user', 'AuthController@user')->name('User');
 
-Route::get('/userslist', 'HomeController@userslist')->name('Users');
+Route::get('/userslist', 'HomeController@userslist')->name('Users'); // routes for navigation in admin userslist page
 
-Route::get('/moredetail', 'HomeController@moredetail')->name('Users');
 
-Route::get('/eventlist', 'HomeController@eventlist')->name('Events');
+Route::get('/eventlist', 'HomeController@eventlist')->name('Events'); // routes for navigation in admin eventlist page
 
-// Route::get('registerCollege', 'HomeController@registerCollege')->name('registerCollege');
+
 
 

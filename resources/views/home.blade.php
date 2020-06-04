@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <title>Sider Menu Bar CSS</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
   </head>
   <body>
     <input type="checkbox" id="check">
@@ -16,11 +16,10 @@
       <i class="fas fa-times" id="cancel"></i>
     </label>
     <div class="sidebar">
-    <header>My App</header>
+    <header>My App</header> <!--admin home page navigation bar -->
   <ul>
     <li><a href="home"><i class="fas fa-qrcode"></i>Dashboard</a></li>
     <li><a href="userslist"><i class="fas fa-link"></i>View users</a></li>
-    <!-- <li><a href="register"><i class="fas fa-stream"></i>Create College</a></li> -->
     <li><a href="eventlist"><i class="fas fa-calendar-week"></i>Events</a></li>
     <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
     <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
@@ -33,12 +32,12 @@
      <br>
 
 
-    <div class="container">
+    <div class="container"><!-- Shows admin home page and basic instructions to admin-->
       <div class="box">
         <div class="imgBx">
           <img src="create.jpg">
         </div>
-        <div class="content">
+        <div class="content"> <!-- information is shown in the box card-->
           <h3>View Users</h3>
           <p>Being the Admin of the System, you can view all the users participated in this system. You can view the address, phone number, name, email, their achievemnts and jobs. Also you can identify users from their role either 
           they are Alumni, College, Students or Admin.</p>

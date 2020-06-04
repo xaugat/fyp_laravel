@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'roles_id', 'phone' , 'address', 'Achievements' , 'Job'
+        'name', 'email', 'password', 'roles_id', 'phone' , 'address', 'Achievements' , 'Job' // asking for validation to create user
     ];
 
     /**
@@ -39,12 +39,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
+    public function role() // accepts roles id
     {
         return $this->hasOne(Role::class, 'id', 'roles_id');
     }
 
-    public function sendPasswordResetNotification($token)
+    public function sendPasswordResetNotification($token) // handles reset password property by sending token
     {
         $this->notify(new PasswordResetNotification($token));
     }

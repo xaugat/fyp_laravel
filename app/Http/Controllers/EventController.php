@@ -7,14 +7,14 @@ use App\Http\Requests;
 use App\Event;
 use App\Http\Resources\Event as EventResource;
 
-class EventController extends Controller
+class EventController extends Controller // this is self created controller which have functionality of CRUD events
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request) // displays events by pagination to 10
     {
         $events = Event::paginate(10);
         
@@ -31,7 +31,7 @@ class EventController extends Controller
         
         
     }
-    public function allevents(Request $request)
+    public function allevents(Request $request) // displays events by pagination to 100
     {
         $events = Event::paginate(100)->sortBy("event_date");
         
@@ -39,13 +39,13 @@ class EventController extends Controller
        
         
     }
-    public function search(Request $request)
+    public function search(Request $request)  // search events by event name take event name as request
     {
   
         $search = $request->header('search');
         $search = $search ."%";
         if($search){
-            return Event::where("event_name","like",$search)->get();
+            return Event::where("event_name","like",$search)->get(); // using where query to search events
         }
     
        
@@ -70,9 +70,9 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) // this function creates new events and updates old events
     {
-        $event = $request->isMethod('put') ? Event::findOrFail
+        $event = $request->isMethod('put') ? Event::findOrFail // checks if requuest is update or create
         ($request->event_id): new Event;
 
         $event->id = $request->input('event_id');
@@ -82,7 +82,7 @@ class EventController extends Controller
         $event->event_venue = $request->input('event_venue');
 
         if($event->save()){
-            return new EventResource($event);
+            return new EventResource($event); // saves event in database afte creating or updating it
 
         }
     }
@@ -93,7 +93,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) /// shows events by id
     {
         $event = Event::findOrFail($id);
 
@@ -106,7 +106,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) 
     {
         //
     }
@@ -129,7 +129,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // deletes events by id
     {
         $event = Event::findOrFail($id);
         if($event->delete()){
